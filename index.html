@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple creative portfolio made with GitHub Pages.">
+  <title>Alex Morgan — Creative Portfolio</title>
+  <style>
+    :root { color-scheme: dark; --bg: #0b111c; --surface: #151d2b; --line: #293445; --txt: #f1f5fd; --muted: #aebbcf; --accent: #8ff7cc; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: radial-gradient(circle at 76% 7%, #21304a 0, transparent 39%),var(--bg); color: var(--txt); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1232px; margin: 0 auto; padding: 0 38px; }
+    nav { height: 96px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ffffff18; }
+    .logo { display: flex; align-items: center; gap: 12px; font-size: 19px; font-weight: 780; letter-spacing: .01em; }
+    .logo-mark { display:grid; place-items:center; height:38px; width:38px; border-radius:12px; font-size: 14px; color: #0b111c; background:var(--accent); }
+    nav .links { display:flex; gap: 33px; color:#c0ccdc; font-size:14px; font-weight:560; }
+    nav .links a:hover { color: var(--accent); }
+    .hero { padding: 93px 0 80px; display:grid; grid-template-columns: 1.3fr .7fr; align-items:center; gap:40px; }
+    .badge { display:inline-flex; align-items:center; gap:10px; border: 1px solid #3d665b; border-radius:40px; color: #baf9de; padding: 9px 16px; background: #162d2d; text-transform: uppercase; letter-spacing: .11em; font-weight:730; font-size: 11px; }
+    .pulse { width:8px; height:8px; border-radius:100%; background:var(--accent); box-shadow: 0 0 15px #8ff7ccbb; }
+    h1 { font-weight:780; font-size: clamp(50px,6vw,84px); line-height:1.07; letter-spacing:-.057em; margin:24px 0 20px; max-width:730px; }
+    h1 span { color:var(--accent); }
+    .intro { color:var(--muted); font-size:18px; line-height:1.7; max-width: 585px; margin: 0 0 34px; }
+    .buttons { display:flex; gap:13px; flex-wrap:wrap; }
+    .button { display:inline-block; padding:15px 23px; border-radius:11px; font-size:14px; font-weight:740; transition: transform .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color:#0b111c; background:var(--accent); }
+    .button.secondary { border:1px solid #465468; color:#e4eaf5; background:#ffffff06; }
+    .art { aspect-ratio: .96; position:relative; display:grid; place-items:center; isolation:isolate; }
+    .art:before { content:""; position:absolute; inset:8% 6%; border-radius:40px; background:linear-gradient(140deg, #284560, #132e32 60%, #314d45); transform:rotate(8deg); border:1px solid #ffffff20; }
+    .art:after { content:"</>"; position:absolute; font-size:clamp(78px,10vw,154px); font-weight:830; letter-spacing:-.12em; line-height:1; color:#0b111c; transform:translateX(-10px); text-shadow: 8px 8px 0 #294553; }
+    .disc { width:65%; aspect-ratio:1; border-radius:100%; background:radial-gradient(circle at 26% 22%, #c4ffe7, #8ff7cc 35%, #3ab894 80%); z-index:-1; box-shadow: 0 32px 65px #0006; }
+    .orbit { position:absolute; border:1px solid #9ff7db40; inset: 1% -5%; border-radius:50%; transform:rotate(-28deg); z-index:-2; }
+    .stripe { position: absolute; right: 3%; top:9%; width:20%; height:8px; background:#adcdf8; border-radius:20px; transform:rotate(-30deg); }
+    .work { padding: 25px 0 82px; }
+    .section-top { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:25px; }
+    .eyebrow { margin:0 0 8px; font-size:12px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); }
+    h2 { margin:0; font-size:33px; letter-spacing:-.045em; }
+    .section-copy { color:var(--muted); font-size:14px; max-width:360px; line-height:1.6; margin:0; }
+    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; }
+    .card { border:1px solid var(--line); background: #151d2b; border-radius:19px; overflow:hidden; }
+    .visual { aspect-ratio: 1.6; overflow:hidden; display:grid; place-items:center; position:relative; }
+    .v1 { background:#5367c7; } .v2 { background:#233d39; } .v3 { background:#c56b56; }
+    .symbol1 { width:66%; height:64%; border-radius:16px; border: 10px solid #d4d8ff; transform: rotate(-12deg); box-shadow: 20px 19px 0 #293c91; }
+    .symbol1:after { content:""; display:block; background:#bccbff; width:50%; height:15%; border-radius:20px; margin:19% auto; }
+    .symbol2 { width:48%; height:75%; border-radius:50% 50% 10px 10px; background:repeating-linear-gradient(90deg,#a8f2c7 0 19px,#376b5d 20px 34px); transform:rotate(22deg); border:6px solid #a8f2c7; }
+    .symbol3 { width:57%; aspect-ratio:1; border-radius:100%; background:#ffdfc9; box-shadow: 28px 26px 0 #863d40; display:grid; place-items:center; font-size:62px; color:#743636; font-weight:800; }
+    .card-body { padding:24px 23px 28px; }
+    .card-type { font-size:11px; letter-spacing:.11em; color:#8ff7cc; font-weight:800; text-transform:uppercase; }
+    h3 { font-size:20px; margin:12px 0 10px; letter-spacing:-.025em; }
+    .card p { color:var(--muted); margin:0; line-height:1.6; font-size:14px; }
+    footer { border-top:1px solid var(--line); padding:34px 0 38px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:10px; }
+    @media(max-width:900px) { .hero { grid-template-columns:1fr; padding:75px 0 40px; } .art { display:none; } .cards { grid-template-columns:1fr; } .section-top { display:block; } .section-copy { margin-top:10px; } }
+    @media(max-width:540px) { .wrap {padding:0 21px;} nav {height:74px;} nav .links {gap:18px;} .hero {padding-top:59px;} h1 { font-size:54px;} .intro{font-size:16px;} footer{flex-direction:column;} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo"><span class="logo-mark">AM</span> Alex Morgan</a>
+      <div class="links"><a href="#work">My work</a><a href="mailto:hello@example.com">Contact</a></div>
+    </nav>
+    <main id="top">
+      <section class="hero" aria-label="Introduction">
+        <div>
+          <div class="badge"><span class="pulse"></span>Available for creative projects</div>
+          <h1>Designing digital <span>experiences</span> that matter.</h1>
+          <p class="intro">Hi, I'm Alex — a creative developer and designer who turns ideas into clear, memorable digital products.</p>
+          <div class="buttons"><a class="button primary" href="#work">See my projects &rarr;</a><a class="button secondary" href="mailto:hello@example.com">Get in touch</a></div>
+        </div>
+        <div class="art" aria-hidden="true"><span class="orbit"></span><span class="stripe"></span><span class="disc"></span></div>
+      </section>
+      <section class="work" id="work">
+        <div class="section-top">
+          <div><p class="eyebrow">Selected work / 2026</p><h2>Featured projects</h2></div>
+          <p class="section-copy">A few examples of how I combine creative thinking, design, and code.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="visual v1"><span class="symbol1" aria-hidden="true"></span></div><div class="card-body"><span class="card-type">Web design</span><h3>Studio Launch</h3><p>A visual-first website designed to help a creative studio stand out.</p></div></article>
+          <article class="card"><div class="visual v2"><span class="symbol2" aria-hidden="true"></span></div><div class="card-body"><span class="card-type">UI / UX</span><h3>Focus Dashboard</h3><p>A calm interface that makes everyday planning feel effortless.</p></div></article>
+          <article class="card"><div class="visual v3"><span class="symbol3" aria-hidden="true">A</span></div><div class="card-body"><span class="card-type">Visual identity</span><h3>Atlas Brand</h3><p>A flexible brand system inspired by movement and exploration.</p></div></article>
+        </div>
+      </section>
+    </main>
+    <footer><span>&copy; 2026 Alex Morgan. Demo portfolio for GitHub Pages tutorial.</span><span>Built with HTML &amp; CSS. Hosted on GitHub Pages.</span></footer>
+  </div>
+</body>
+</html>
